@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marco Duering</title>
+    <meta
+      name="description"
+      content="Marco Duering, Neuroimaging Researcher. Antaros Medical AB and University of Basel."
+    />
+    <link rel="canonical" href="https://marcoduering.github.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Marco Duering" />
+    <meta
+      property="og:description"
+      content="Neuroimaging Researcher. Antaros Medical AB and University of Basel."
+    />
+    <meta property="og:image" content="https://marcoduering.github.io/media/tracts.jpeg" />
+    <meta property="og:url" content="https://marcoduering.github.io/" />
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #f6f7f9;
+        --fg: #14161a;
+        --fg-soft: #50555e;
+        --fg-faint: #8a909a;
+        --accent: #2f6df6;
+        --border: #e6e8ec;
+        --shadow: 0 1px 2px rgba(20, 22, 26, 0.04),
+          0 8px 24px rgba(20, 22, 26, 0.05);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0c0e12;
+          --bg-soft: #11141a;
+          --fg: #f2f4f7;
+          --fg-soft: #aab1bd;
+          --fg-faint: #6b7280;
+          --accent: #5b8dff;
+          --border: #232833;
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+            0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.55;
+        letter-spacing: -0.01em;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+      }
+
+      /* Full-bleed immersive hero */
+      .hero {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        min-height: clamp(240px, 40vh, 380px);
+        background-color: #000;
+        background-image: url("media/tracts.jpeg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: min(100%, 720px) auto;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            130% 90% at 50% 25%,
+            rgba(0, 0, 0, 0) 35%,
+            rgba(0, 0, 0, 0.45) 100%
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.25) 0%,
+            rgba(0, 0, 0, 0) 45%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
+      }
+
+      .hero-inner {
+        position: relative;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 0 24px 42px;
+      }
+
+      h1 {
+        position: relative;
+        color: #fff;
+        font-size: clamp(1.9rem, 5.5vw, 2.8rem);
+        font-weight: 720;
+        letter-spacing: -0.03em;
+        margin: 0;
+        line-height: 1.02;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.6);
+      }
+
+      .role {
+        position: relative;
+        margin: 10px 0 0;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: clamp(1.05rem, 2.6vw, 1.3rem);
+        font-weight: 500;
+        letter-spacing: 0.005em;
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.65);
+      }
+
+      /* Featured project banner */
+      .promo {
+        display: block;
+        margin-top: 30px;
+        padding: 22px 24px;
+        border-radius: 16px;
+        text-decoration: none;
+        color: #fff;
+        background: linear-gradient(135deg, #2f6df6 0%, #5b8dff 60%, #7aa2ff 100%);
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.16s ease, box-shadow 0.16s ease,
+          filter 0.16s ease;
+      }
+
+      .promo::after {
+        content: "";
+        position: absolute;
+        top: -40%;
+        right: -10%;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+        pointer-events: none;
+      }
+
+      .promo:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.04);
+      }
+
+      .promo-label {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+
+      .promo-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 7px 0 5px;
+      }
+
+      .promo-sub {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        opacity: 0.93;
+        max-width: 52ch;
+      }
+
+      .promo-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 13px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .promo-arrow {
+        transition: transform 0.16s ease;
+      }
+
+      .promo:hover .promo-arrow {
+        transform: translateX(3px);
+      }
+
+      .section-label:first-child {
+        margin-top: 4px;
+      }
+
+      .section-label {
+        margin: 40px 0 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--fg-faint);
+      }
+
+      .links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .card {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 15px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--bg);
+        color: inherit;
+        text-decoration: none;
+        transition: transform 0.16s ease, border-color 0.16s ease,
+          box-shadow 0.16s ease;
+      }
+
+      .card.span-full {
+        grid-column: 1 / -1;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+        box-shadow: var(--shadow);
+      }
+
+      .card .icon {
+        flex: 0 0 auto;
+        width: 22px;
+        height: 22px;
+        color: var(--accent);
+      }
+
+      .card .icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .card .meta {
+        min-width: 0;
+      }
+
+      .card .title {
+        font-weight: 600;
+        font-size: 0.97rem;
+        line-height: 1.2;
+      }
+
+      .card .sub {
+        color: var(--fg-faint);
+        font-size: 0.82rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      footer {
+        margin-top: 48px;
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
+        color: var(--fg-faint);
+        font-size: 0.85rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      footer a {
+        color: var(--fg-soft);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 520px) {
+        .links {
+          grid-template-columns: 1fr;
+        }
+        .wrap {
+          padding: 28px 18px 48px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="hero" role="img" aria-label="White matter tractography">
+      <div class="hero-inner">
+        <h1>Marco Duering</h1>
+        <p class="role">Neuroimaging Researcher</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <p class="section-label">Profiles</p>
+      <div class="links">
+        <a class="card" href="https://scholar.google.com/citations?hl=en&user=W4QPOg4AAAAJ" rel="noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 3L1 8.5l11 5.5 9-4.5v6h2v-7L12 3zM4 12.7v3.3c0 1.66 3.58 3 8 3s8-1.34 8-3v-3.3l-8 4-8-4z"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">Google Scholar</div>
+            <div class="sub">Publications &amp; citations</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://orcid.org/0000-0003-2302-3136" rel="me noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 18.16H5.61V8.2h1.76v9.96zM6.49 6.79a1.02 1.02 0 110-2.04 1.02 1.02 0 010 2.04zm12.06 11.37h-1.75v-4.84c0-1.15-.02-2.64-1.61-2.64-1.61 0-1.86 1.26-1.86 2.56v4.92h-1.75V8.2h1.68v.92h.02c.32-.61 1.11-1.25 2.28-1.25 2.44 0 2.99 1.4 2.99 3.22v5.07h.01z" opacity="0"/>
+              <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zM8 6.9c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zm.7 10.6H7.3V9.6h1.4v7.9zm8.6 0h-1.4v-3.9c0-1.6-.6-2.5-1.9-2.5-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9v4.1h-1.4s.02-6.6 0-7.9h1.4v1.1c.3-.6 1-1.4 2.4-1.4 1.7 0 3 1.1 3 3.6v4.6z"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">ORCID</div>
+            <div class="sub">0000-0003-2302-3136</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://www.linkedin.com/in/marco-d%C3%BCring/" rel="noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">LinkedIn</div>
+            <div class="sub">marco-düring</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://github.com/marcoduering" rel="me noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">GitHub</div>
+            <div class="sub">@marcoduering</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://fediscience.org/@marcoduering" rel="me noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.27 5.33c-.36-2.66-2.69-4.76-5.45-5.16C17.36.1 15.6 0 12.13 0h-.03C8.62 0 7.87.1 7.41.17 4.72.56 2.27 2.45 1.68 5.15 1.39 6.48 1.36 7.96 1.42 9.31c.08 1.94.1 3.88.28 5.81.12 1.28.34 2.55.65 3.8.59 2.31 2.88 4.23 5.13 5.02 2.41.83 5 .96 7.45.4.27-.06.54-.13.8-.21.6-.19 1.3-.4 1.81-.77a.06.06 0 00.03-.05v-1.85a.05.05 0 00-.07-.05c-1.55.37-3.13.55-4.73.55-2.75 0-3.49-1.3-3.7-1.85a5.6 5.6 0 01-.32-1.45.05.05 0 01.06-.06c1.52.37 3.08.55 4.65.55.38 0 .75 0 1.13-.01 1.58-.04 3.24-.13 4.79-.43l.11-.02c2.44-.47 4.76-1.94 5-5.67.01-.15.03-1.54.03-1.69 0-.52.17-3.68-.02-5.62zM19.6 14.92h-2.36V9.16c0-1.21-.51-1.83-1.54-1.83-1.13 0-1.7.73-1.7 2.18v3.16h-2.35V9.51c0-1.45-.57-2.18-1.7-2.18-1.03 0-1.54.62-1.54 1.83v5.76H6.05V8.99c0-1.21.31-2.17.93-2.88.63-.71 1.46-1.07 2.49-1.07 1.19 0 2.09.46 2.69 1.37l.59.99.59-.99c.6-.91 1.5-1.37 2.69-1.37 1.03 0 1.86.36 2.49 1.07.62.71.93 1.67.93 2.88v5.93z"/>
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">Mastodon</div>
+            <div class="sub">@marcoduering@fediscience.org</div>
+          </span>
+        </a>
+      </div>
+
+      <a class="promo" href="https://miq.marco-duering.net" rel="noopener" target="_blank">
+        <div class="promo-label">Featured project</div>
+        <div class="promo-title">MIQ: Medical Image Quick Look</div>
+        <div class="promo-sub">
+          Preview medical images right from Finder. A lightweight macOS Quick
+          Look extension for NIfTI, FreeSurfer, MRtrix &amp; NRRD volumes. Press
+          Space for an interactive slice view. No app to open.
+        </div>
+        <span class="promo-cta"
+          >miq.marco-duering.net <span class="promo-arrow" aria-hidden="true">→</span></span
+        >
+      </a>
+
+      <p class="section-label">Affiliations</p>
+      <div class="links">
+        <a class="card span-full" href="https://antarosmedical.com" rel="noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4M9 9h.01M9 13h.01M9 17h.01" />
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">Antaros Medical</div>
+            <div class="sub">VP Neuroscience</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://dbe.unibas.ch/en/research/imaging-modelling-diagnosis/translational-imaging-in-neurology-think-basel-group/prof-dr-marco-duering/" rel="noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10L12 4 2 10l10 6 10-6zM6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5M22 10v6" />
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">University of Basel, DBE</div>
+            <div class="sub">Think Basel group</div>
+          </span>
+        </a>
+
+        <a class="card" href="https://www.isd-research.de/duering-lab" rel="noopener" target="_blank">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10L12 4 2 10l10 6 10-6zM6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5M22 10v6" />
+            </svg>
+          </span>
+          <span class="meta">
+            <div class="title">LMU Munich, ISD</div>
+            <div class="sub">Duering Lab</div>
+          </span>
+        </a>
+      </div>
+
+      <footer>
+        <span>Basel, Switzerland</span>
+        <span>&copy; <span id="year"></span> Marco Duering</span>
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
